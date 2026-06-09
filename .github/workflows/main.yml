@@ -1,11 +1,11 @@
-name: Automate ML CI
+name: Automate ML CI Docker
 
 on:
   push:
 
 jobs:
 
-  train-model:
+  build-and-train:
 
     runs-on: ubuntu-latest
 
@@ -24,3 +24,6 @@ jobs:
 
     - name: Run Training File
       run: python train.py
+
+    - name: Build Docker Image
+      run: docker build -t automate:v1 .
